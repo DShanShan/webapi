@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<link rel="stylesheet" href="../css/base.css">-->
+</head>
+<body>
+<!--<img src="../img/bac1.jpg" alt="">-->
+<!--<input type="button" value="下一张">-->
+
+<!--请输入密码：<input class="pass" type="password" >
+<input class="button" type="button" value="眼睛">-->
+
+<img src="../img/off.gif" alt="">
+
+
+</body>
+<script>
+    /*//获取图片标签对象
+    var img = document.querySelector("img");
+    //获取事件源
+    var input = document.querySelector("input");
+    //事件处理函数
+    //定义一个记录图片的数
+    var num=1;
+    function htp() {
+        num++;
+        if(num===3){
+            num=1;
+        }
+        img.src="../img/bac"+num+".jpg";
+    }
+    //给按钮绑定单击事件  事件源是按钮
+    input.onclick=htp;*/
+
+    
+    
+    
+   /* var button = document.querySelector(".button");
+    var text = document.querySelector(".pass");
+    var flag=true;
+    button.onclick=function () {
+        // if (flag){
+        //     text.type="text";
+        //     flag=false;
+        // } else {
+        //     text.type="password";
+        //     flag=true;
+        // }
+
+        flag?text.type="text":text.type="password";
+        flag?flag=false:flag=true;
+
+        }*/
+   
+   
+   var img = document.querySelector("img");
+   var flag=true;
+   img.onclick=function () {
+       if(flag) {
+            img.src="../img/on.gif";
+            flag=false;
+       }else {
+           img.src="../img/off.gif";
+           flag=true;
+       }
+    }
+
+</script>
+</html>

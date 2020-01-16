@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #B2B2B2;
+        }
+        .box{
+            width: 600px;
+            margin: 0 auto;
+        }
+        .box h1{
+            text-align: center;
+            font-size: 25px;
+            font-weight: normal;
+            cursor: pointer;
+        }
+        .big {
+            width: 560px;
+            height: 300px;
+            background-color: #fff;
+            margin-top: 50px;
+            padding: 20px;
+            position: absolute;
+            display: none;
+            cursor: all-scroll;
+        }
+        .big h3{
+            text-align: center;
+            font-size: 18px;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+        .big input {
+            width: 410px;
+            height: 45px;
+            margin-bottom: 20px;
+            text-indent: 0.5em;
+            outline: none;
+        }
+        .big .button1,.big .button2 {
+            width: 100px;
+            background-color: #fff;
+            border: 1px solid #cccccc;
+            margin-left: 130px;
+            margin-top: 10px;
+            font-size: 15px;
+        }
+        .qu {
+            width: 40px;
+            line-height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: -20px;
+            right: -15px;
+            text-align: center;
+            font-size: 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1 class="h1">点击，弹出登录框</h1>
+        <div class="big">
+            <h3>登录会员</h3>
+            &nbsp;&nbsp;&nbsp;用户名：&nbsp;&nbsp;<input type="text" placeholder="请输入用户名">
+            <br>
+            登录密码：&nbsp;&nbsp;<input type="password" placeholder="请输入密码">
+            <br>
+            <input class="button1" type="button" value="登录">
+            <input class="button2" type="button" value="注册">
+            <div class="qu">关闭</div>
+        </div>
+    </div>
+</body>
+<script>
+    var h1 = document.querySelector(".h1");
+    var big = document.querySelector(".big");
+    var div = document.querySelector(".div");
+    var qu = document.querySelector(".qu");
+    var text = document.querySelector("[type='text']");
+    var pwd = document.querySelector("[type='password']");
+    var button1 = document.querySelector(".button1");
+    var button2 = document.querySelector(".button2");
+    button2.onclick=function(){
+        location.href='注册.html';
+    }
+    button1.onclick=function(){
+        var value = text.value;
+        var value1 = pwd.value;
+        if (value==="admin" && value1==='123'){
+            // alert("登录成功");
+            // location.href='http://www.weibo.com';
+            location.href='作业3.html';
+        } else if (value==="admin") {
+            alert("密码错误！");
+            text.value="";
+            pwd.value="";
+        }else if (value1==='123') {
+            alert("用户名错误！");
+            text.value="";
+            pwd.value="";
+        }else {
+            alert("请输入正确的内容");
+        }
+    }
+    h1.onclick=function () {
+        big.style.display="block";
+    }
+    big.onmousedown=function(){
+        big.onmousemove=function (ev) {
+            var x = ev.clientX-560/2;
+            var y = ev.clientY-560/2;
+            if (x<0) x=0;
+            if (y<-50+20)y=-50+20;
+            if (x>1920-560-50) x=1920-560-50;
+            if (y>1130-560)y=1130-560;
+            big.style.left=x+"px";
+            big.style.top=y+"px";
+        }
+
+    }
+    big.onmouseup=function () {
+        big.onmouseover=null;
+        big.style.left=0+"px";
+        big.style.top=0+"px";
+    }
+
+    qu.onclick=function () {
+        big.style.display="none";
+    }
+
+</script>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input {
+            width: 410px;
+            height: 45px;
+            margin-bottom: 20px;
+            text-indent: 0.5em;
+            outline: none;
+        }
+        .button {
+            width: 300px;
+            margin-left: 150px;
+        }
+    </style>
+</head>
+<body>
+<form action="">
+用户名:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="user" type="text">
+<br>
+密码：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="pwd" type="password" >
+<br>
+确认密码：<input class="repwd" type="password">
+<br>
+电子邮箱：<input class="em" type="text" >
+<br>
+手机号码：<input class="num" type="text">
+<br>
+出生日期：<input class="sr" type="text">
+<br>
+<input class="button" type="button" value="注册">
+</form>
+<a href="登录.html">已注册</a>
+</body>
+<script>
+    var button = document.querySelector(".button");
+    var name1 = document.querySelector(".user");
+    var pass = document.querySelector(".pwd");
+    var repass = document.querySelector(".repwd");
+    var em = document.querySelector(".em");
+    var number = document.querySelector(".num");
+    var sr1 = document.querySelector(".sr");
+
+    button.onclick=function () {
+
+        if(log()&&sr()&&pwd()&&repwd()&&email()&&num()){
+            alert("注册成功");
+            location.href='登录.html';
+        }else{
+            alert("注册失败");
+        }
+
+    }
+    function log() {
+        var reg=/^[a-zA-Z][a-zA-Z0-9]{4,9}$/;
+        if(reg.test(name1.value)){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    function pwd() {
+        var reg=/^[a-zA-Z0-9]{6,20}$/;
+        if (reg.test(pass.value)) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    function repwd() {
+        if (repass.value===pass.value) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    function email() {
+        var reg=/^\w{5,10}@\w{2,3}.[a-z]{2,3}$/;
+        if (reg.test(em.value)) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    function num() {
+        var reg=/^[1][3|5|6|8][0-9]{1,9}$/;
+        if (reg.test(number.value)){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function sr(){
+        var reg=/^(19[0-9][0-9]|200[0-9])-([1-9]|0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+        if (reg.test(sr1.value)) {
+            // console.log(sr1.value);
+            return true;
+        }else {
+            return false;
+        }
+    }
+</script>
+</html>

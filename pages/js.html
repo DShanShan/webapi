@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*  webAPI
+        *
+        *   console.log()与console.dir()的区别
+        *       console.log()可以输出多个值    区分数据类型
+        *       console.dir()只能输出第一个值  不能区分数据类型
+        *
+        *   元素.style.样式名 = 样式值
+        *   font-size fontSize 如果有多个单词，去掉单词之间短横，并且使用驼峰命名法
+        *   document.body.style.backgroundColor="pink";
+        *
+        *
+        *   .querySelector("") 只能获取第一个元素
+        *   如果没有找到返回null
+        *
+        *
+        *   .querySelectorAll("") 获取多个元素 返回的是一个伪数组
+        *   返回一个 NodeList 对象
+        *   如果没有找到返回空的伪数组
+        *
+        *
+        *   事件的三要素：
+        *       事件源，事件类型，事件处理函数
+        *
+        *   getElementById:  少用
+        *       id唯一的，
+        *       如果找不到返回null,
+        *       传入的参数必须是字符串，不要加空格
+        *
+        *   getElementsByTagName  不常用
+        *       传入的参数是标签名
+        *       返回一个伪数组  HTMLCollection
+        *       如果找不到 返回一个空的伪数组
+        *
+        *   getElementsByClassName  不用
+        *       传入的参数是类名
+        *       返回一个伪数组  HTMLCollection
+        *       如果找不到 返回一个空的伪数组
+        *
+        *   innerHTML可以写入标签
+        *   span.innerHTML="<p>收起</p>";
+        *   span.innerHTML;  获取
+        *
+        *   innerText不能写入标签，会把标签转换成文字
+        *   span.innerText="收起";
+        *   span.innerText;  获取
+        *
+        *
+        *   把伪数组转换成真数组
+        *       Array.from(伪数组)
+        *
+        *   获取和修改类名：
+        *       元素.className
+        *       元素.className='值'
+        *       元素.className+='   值'-----类名加上空格
+        *    <div class="a"></div>
+        *       div[x].className+="   font"
+        *
+        *       <div class="a   font"></div>
+        *
+        *   classList.add()----增加
+        *   classList.remove()-----删除
+        *   classList.toggle()-----切换
+        *
+        *   创建元素
+        *   dom树.createElement("标签")
+        *
+        *   添加元素
+        *   父元素.appendChild(子节点);
+        *
+        *   删除元素
+        *   父元素.removeChild(子节点);
+        *
+        *   替换元素
+        *       父元素.replaceChild(新节点，旧节点)
+        *       替换的元素不会在页面中显示，但是它在内存中还是存在的
+        *
+        *   插入元素
+        *       父元素.insertBefore(子节点,位置)
+        *       var p=document.createElement("p");
+                p.innerText="我是一个p标签";
+                p.style.backgroundColor="blue";
+                var ul=document.querySelector("ul");
+                var li=document.querySelectorAll("li");
+                ul.insertBefore(p,li[2]);
+        *
+        *   克隆元素
+        *       要克隆的内容.cloneNode();
+        *       获取克隆的节点，以返回值接收
+        *       参数可以传入布尔值，如果克隆的是标签对，传入参数true代表克隆内容
+        *       var node1 = span.cloneNode(true);
+                console.log(node1);
+
+            获取子元素的父元素
+                子元素.parentElement
+        *
+        *   onclick  鼠标点击事件
+        *   ondblclick  鼠标双击事件
+        *   onmouseover  鼠标移入事件
+        *   onmouseout   鼠标移开事件
+        *   onmousemove   鼠标移动事件
+        *   onmousedown   鼠标按下事件
+        *   onmouseup     鼠标弹起事件
+        *   onkeydown   键盘事件
+        *   onfocus    获得焦点
+        *   onblur     失去焦点
+        *
+        *
+        *
+        * */
+    </script>
+
+</head>
+<body>
+
+</body>
+
+</html>

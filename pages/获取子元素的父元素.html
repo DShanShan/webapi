@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li><a href="#">删除</a></li>
+    <li><a href="#">删除</a></li>
+    <li><a href="#">删除</a></li>
+    <li><a href="#">删除</a></li>
+</ul>
+</body>
+<script>
+    var aList = document.querySelectorAll("a");
+    aList.forEach(function (value) {
+        value.onclick=function () {
+            //value.parentElement.parentElement-------获取a的父元素li，再获取a父元素的父元素ul
+            value.parentElement.parentElement.removeChild(value.parentElement);
+        }
+    })
+</script>
+</html>

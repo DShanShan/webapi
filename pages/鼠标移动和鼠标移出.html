@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            opacity: 0;
+            transition: all 3s;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="按钮">
+<div></div>
+</body>
+<script>
+    var input = document.querySelector("input");
+    var div= document.querySelector("div");
+    input.onmousemove=function () {
+        div.style.opacity="1";
+    }
+    input.onmouseout=function () {
+        div.style.opacity="0";
+    }
+</script>
+</html>

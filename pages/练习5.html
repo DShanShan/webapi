@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>01</li>
+    <li>02</li>
+    <li>03</li>
+    <li>04</li>
+</ul>
+
+</body>
+<script>
+    var ul = document.querySelector("ul");
+    ul.replaceChild(ul.children[0],ul.children[ul.children.length-1]);
+
+    var p=document.createElement("p");
+    p.innerText="我是一个p标签";
+    p.style.backgroundColor="blue";
+    var ul=document.querySelector("ul");
+    var li=document.querySelectorAll("li");
+    ul.insertBefore(p,li[li.length]);
+</script>
+</html>

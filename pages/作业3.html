@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 480px;
+            border: 1px solid #cccccc;
+            margin: 0 auto;
+            padding: 10px;
+        }
+        .box .text {
+            width: 480px;
+            height: 200px;
+            border: 1px solid #cccccc;
+            outline: none;
+            overflow-y: scroll;
+        }
+        .input {
+            width: 80px;
+            height: 40px;
+            background-color: #FF9700;
+            border: 0;
+            outline: none;
+            margin: 10px 10px 10px 0;
+            border-radius: 5px;
+            color: white;
+            font-size: 15px;
+        }
+        .big {
+            width: 385px;
+            line-height: 55px;
+            float: right;
+            position: relative;
+            display: block;
+        }
+        .span{
+            cursor: pointer;
+            font-style: normal;
+        }
+        .div{
+            width: 183px;
+            height: 50px;
+            line-height: 25px;
+            border: 1px solid #cccccc;
+            background-color: #fff;
+            padding: 5px;
+            position: absolute;
+            bottom: 40px;
+            left: -17px;
+            display: none;
+            cursor: pointer;
+        }
+        ul li{
+            width: 395px;
+            height: 20px;
+            display: inline-block;
+            color: black;
+            font-size: 15px;
+            text-decoration: none;
+            position: relative;
+            border-bottom: 1px dashed #cccccc;
+            list-style: none;
+            padding-right: 85px;
+            word-break: break-word;
+        }
+        li span,li em {
+            width: 35px;
+            display: inline-block;
+            text-align: right;
+            position: absolute;
+            right: 0;
+            cursor: pointer;
+        }
+        li em {
+            font-style: normal;
+            right: 45px;
+        }
+        li strong {
+            width: 395px;
+            height: 19px;
+            font-size: 16px;
+            font-weight: normal;
+            display: inline-block;
+        }
+        input {
+            width: 395px;
+            height: 19px;
+            color: black;
+            font-size: 16px;
+            height: 20px;
+            font-weight: normal;
+            border: 0;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div contenteditable="true" class="text" ></div>
+    <input class="input" type="button" value="发布">
+    <div class="big">
+        <i class="span">😀</i>
+        <div class="div">
+            <img src="../img/01.gif" alt="">
+            <img src="../img/02.gif" alt="">
+            <img src="../img/03.gif" alt="">
+            <img src="../img/04.gif" alt="">
+            <img src="../img/05.gif" alt="">
+            <img src="../img/06.gif" alt="">
+            <img src="../img/07.gif" alt="">
+            <img src="../img/08.gif" alt="">
+            <img src="../img/09.gif" alt="">
+            <img src="../img/10.gif" alt="">
+            <img src="../img/11.gif" alt="">
+            <img src="../img/12.gif" alt="">
+        </div>
+    </div>
+    <ul>
+        <li><strong>啊啊啊啊啊啊</strong><em>编辑</em><span>删除</span></li>
+    </ul>
+</div>
+</body>
+<script>
+    var box = document.querySelector(".box");
+    var text = document.querySelector(".text");
+    var input = document.querySelector("[type='button']");
+    var ul = document.querySelector("ul");
+    var span1 = document.querySelector(".span");
+    var div = document.querySelector(".div");
+    var img = document.querySelectorAll("img");
+
+    function send(){
+        //获取文本框的内容并去掉两端的空格
+        var value = text.innerHTML.trim();
+        if (value !== "" ) {
+            if (value.length||value.children.length) {
+                //创建元素li
+                var li = document.createElement("li");
+                var strong = document.createElement("strong");
+
+                //把文本框里面获取到的值给li
+
+                strong.innerHTML = value;
+                li.appendChild(strong);
+
+                // console.log(li.innerText)
+                //把li添加到ul中
+                // ul.appendChild(li);
+                //把li插入到第一
+                ul.insertBefore(li,ul.children[0]);
+                //创建元素span
+                var span = document.createElement("span");
+                span.innerText = "删除";
+                //把span添加到li里面
+                li.appendChild(span);
+                //创建元素em
+                var em = document.createElement("em");
+                em.innerText="编辑";
+                //把em添加到li里面
+                li.appendChild(em);
+                //每次写入后清空
+                text.innerHTML = "";
+
+            } else {
+                alert("长话短说，不能超过120~~~");
+            }
+        }else {
+            alert("不能发布空微博")
+        }
+    }
+    //按下键盘上的某个键
+    text.onkeydown=function (ev) {
+        //按下回车键
+        if(ev.keyCode===13) {
+            send();
+        }
+        if (event.which == 13) {
+            // 禁止换行
+            event.cancelBubble=true;
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    }
+
+    input.onclick=send;
+
+    box.onclick=function (ev) {
+        console.log(ev.target.nodeName);
+        if (ev.target.nodeName==="SPAN"){
+            ev.target.parentElement.parentElement.removeChild(ev.target.parentElement);
+        }
+        if (ev.target.nodeName==="EM"){
+            var input = document.createElement("input");
+            var st = document.querySelector("strong");
+            input.type="text";
+            // console.dir(input)
+            input.value=st.innerHTML;
+            // console.log(input.value)
+            ev.target.parentElement.replaceChild(input,st);
+
+            input.focus();//自动获取光标
+            input.onblur=function () {
+                var strong = document.createElement("strong");
+                strong.innerHTML=this.value;
+                this.parentElement.replaceChild(strong,this);
+                // console.log(strong.innerHTML)
+                if (strong.innerHTML===""){
+                    strong.parentElement.parentElement.removeChild(strong.parentElement);
+                }
+            }
+
+        }
+
+    }
+    //获得焦点
+    text.onfocus=function () {
+        text.style.borderColor="#FF6A08";
+    }
+    //失去焦点
+    text.onblur=function () {
+        text.style.borderColor="#cccccc";
+    }
+    span1.onclick=function () {
+        div.style.display="block";
+        var flag=true;
+        img.forEach(function (value) {
+            value.onclick=function () {
+                if (flag) {
+                    // 要克隆的内容.cloneNode();
+                    var node = value.cloneNode();
+                    // console.log(node);
+                    text.appendChild(node);
+                    div.style.display = "none";
+                    flag=false;
+                }else {
+                    div.style.display = "block";
+                    flag=true;
+                }
+            }
+        })
+
+    }
+
+</script>
+</html>

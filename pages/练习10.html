@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<!--<img src="../img/12.gif" alt="">-->
+<input type="text">
+</body>
+<script>
+    // var img = document.querySelector("img");
+    // document.onmousemove=function (ev) {
+    //     img.style.top=ev.clientY+"px";
+    //     img.style.left=ev.clientX+"px";
+    // }
+    var input = document.querySelector("input");
+    input.onkeydown=function (ev) {
+        alert(ev.keyCode);
+        if (ev.keyCode===13 || ev.ctrlKey){
+            console.log("回车键或ctrl键被按下")
+        }
+    }
+</script>
+</html>

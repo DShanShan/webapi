@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <style>
+        img {
+            position: absolute;
+            height: 784px;
+        }
+        ul {
+            width: 150px;
+            height: 30px;
+            position: absolute;
+            bottom: 200px;
+            left: 50%;
+            margin-left: -15px;
+        }
+        ul li {
+            width: 15px;
+            height: 15px;
+            float: left;
+            list-style: none;
+            background-color: #fff;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 2px solid #cccccc;
+        }
+    </style>
+</head>
+<body>
+<img src="../img/bac1.jpg" alt="">
+
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+<script>
+    var img = document.querySelector("img");
+    var li = document.querySelectorAll("li");
+        var i=1;
+        function f() {
+            i++;
+            if (i===4){
+                i=1;
+            }
+            img.src = "../img/bac" + i + ".jpg";
+        }
+    for (var j=0;j<li.length;j++) {
+        li[j].onclick = f;
+    }
+
+</script>
+</html>

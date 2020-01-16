@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            width: 350px;
+            height: 350px;
+            margin: 100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .big {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 360px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            display: none;
+        }
+
+        .mask {
+            width: 175px;
+            height: 175px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            /* 把鼠标指针换成移动图标 */
+            cursor: move;
+            display: none;
+        }
+
+        .small {
+            position: relative;
+            height: 350px;
+            width: 350px;
+        }
+
+        .active .mask,
+        .active .big {
+            display: block;
+        }
+
+        .big img {
+            /* 相对定位：相对自己原本的位置定位，原来的位置保留的 */
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<!-- 整个大盒子 -->
+<div class="main" id="main">
+    <div class="small">
+        <!--小图-->
+        <img alt="" class="smallImg" src="../img/iphoneX.jpg" width="350" />
+        <!-- 遮挡层,黄色的小方块 -->
+        <div class="mask"></div>
+    </div>
+    <!--大层-->
+    <div class="big">
+        <!--大图-->
+        <img alt="" class="bigImg" src="../img/iphoneX.jpg" width="800" />
+    </div>
+</div>
+</body>
+<script>
+    var small = document.querySelector(".small");
+    var mask = document.querySelector(".mask");
+    var big = document.querySelector(".big");
+    var img = document.querySelector(".bigImg");
+    small.onmouseover=function () {
+        big.style.display="block";
+        mask.style.display="block";
+    }
+    small.onmouseout=function () {
+        big.style.display="none";
+        mask.style.display="none";
+    }
+    small.onmousemove=function (ev) {
+        //-100-----main有一个margin: 100px;
+        //-175/2-----让鼠标到中间，-盒子的一半
+        var x = ev.pageX-100-175/2;
+        var y = ev.pageY-100-175/2;
+        //如果x小于0，就让x=0
+        if(x<0)x=0;
+        if(y<0)y=0;
+        //如果x大于外面盒子-遮罩层，就让x=350-175
+        if (x>350-175)x=350-175;
+        if (y>350-175)y=350-175;
+        mask.style.left=x+"px";
+        mask.style.top=y+"px";
+
+        //*-1-----让它向反向移动，
+        img.style.left=-1*x*(800/350)+"px";
+        img.style.top=-1*y*(800/350)+"px";
+    }
+</script>
+</html>

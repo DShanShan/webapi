@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/my.js"></script>
+    <!--<script>-->
+        <!--console.log(1,2,3);-->
+        <!--console.log("中");-->
+        <!--console.dir(1,2,3);-->
+        <!--console.dir("中");-->
+
+    <!--</script>-->
+    <style>
+        div {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="d" id="g">G</div>
+    <div class="d">o</div>
+    <div class="d">o</div>
+    <div class="d">g</div>
+    <div class="d">l</div>
+    <div class="d">e</div>
+</body>
+    <script>
+        // document.body.style.backgroundColor=rgbColor();
+        var div1 = document.querySelectorAll("body div");
+        for (var i=0;i<div1.length;i++){
+            div1[i].style.color=rgbColor();
+        }
+
+        var g = document.getElementById("g");
+        console.log(g);
+        var div = document.getElementsByTagName("div");
+        console.log(div);
+        var d = document.getElementsByClassName("d");
+        console.log(d);
+
+
+    </script>
+</html>

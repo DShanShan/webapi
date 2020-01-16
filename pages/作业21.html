@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 1910px;
+            height: 750px;
+        }
+        .box .img {
+            position: relative;
+            height: 650px;
+        }
+        .box .img img {
+            display: inline-block;
+            height: 650px;
+            position: absolute;
+            top: -610px;
+            left: 0;
+            transition: all 1s ease;
+        }
+        .box input{
+            width: 100px;
+            height: 50px;
+            position: absolute;
+            top: 0;
+            left: 760px;
+            transition: all 1s ease;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="img">
+        <img src="../img/dropDown_WPS图片.bmp" alt="">
+    </div>
+    <input type="button" value="更多">
+</div>
+</body>
+<script>
+    var img = document.querySelector(".img img");
+    var input = document.querySelector("input");
+    var flag=true;
+    input.onclick=function () {
+        if (flag){
+            img.style.top="0"
+            input.style.top="630px";
+            input.value="收起";
+            flag=false;
+        } else {
+            img.style.top="-610px"
+            input.style.top="0";
+            input.value="更多";
+            flag=true;
+        }
+    }
+</script>
+</html>

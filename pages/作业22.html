@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            position: relative;
+            width: 1226px;
+            height: 460px;
+        }
+        .box img {
+            position: absolute;
+            transition: all 1s ease;
+        }
+        .box .img1{
+            opacity: 0;
+        }
+        .box ul{
+            width: 150px;
+            height: 30px;
+            position: absolute;
+            bottom: -10px;
+            right: 85px;
+        }
+        .box ul li {
+            width: 15px;
+            height: 15px;
+            float: left;
+            list-style: none;
+            background-color: black;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 2px solid #cccccc;
+        }
+        .box ul li:first-child {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <img src="../img/e52c3e98602b90f198ec316dce253cba.webp" alt="">
+    <img class="img1" src="../img/5cac96e3dd740cfd6384986cebdbface.webp" alt="">
+    <img class="img1" src="../img/6731e5a37682eec528729d7c05a9b581.webp" alt="">
+    <img class="img1" src="../img/05bc8af40fc9f9941808d253034c279d.webp" alt="">
+    <ul>
+        <li value="0"></li>
+        <li value="1"></li>
+        <li value="2"></li>
+        <li value="3"></li>
+    </ul>
+</div>
+</body>
+<script>
+    var img = document.querySelectorAll(".box img");
+    var li = document.querySelectorAll("ul li");
+    li.forEach(function (value) {
+        value.onclick=function () {
+            li.forEach(function (value1) {
+                value1.style.backgroundColor="black";
+            })
+            value.style.backgroundColor="white";
+            img.forEach(function (value2) {
+                value2.style.opacity="0";
+            })
+            img[value.value].style.opacity="1";
+        }
+    })
+</script>
+</html>

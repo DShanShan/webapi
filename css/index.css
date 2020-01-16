@@ -1,0 +1,185 @@
+.box {
+    width: 590px;
+    height: 340px;
+    margin: 0 auto;
+    border: 15px solid white;
+}
+.box .top {
+    width: 550px;
+    height: 48px;
+    padding: 12px 20px 0;
+}
+.box .top h2 {
+    width: 150px;
+    float: left;
+    margin-top: 12px;
+}
+.top h2 span {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url("../img/sprite.png") no-repeat -16px 0;
+    margin-left: 10px;
+}
+.top h2:hover span {
+    background: url("../img/sprite.png") no-repeat 0 0;
+}
+.box .top ul {
+    width: 354px;
+    height: 60px;
+    float: right;
+}
+.top ul li {
+    float: left;
+    padding: 10px 0;
+    width: 65px;
+    height: 40px;
+    font-size: 12px;
+    margin-left: 5px;
+    line-height: 40px;
+    text-align: center;
+}
+.top li a {
+    color: #666666;
+}
+.bottom {
+    width: 570px;
+    height: 270px;
+    margin-top: 10px;
+    padding: 0 17px;
+    position: absolute;
+    background-color: #fff;
+}
+.bottom .bottom-left {
+    width: 270px;
+    height: 250px;
+    background-color: #F8F9FA;
+    padding-top: 16px;
+    position: relative;
+    float: left;
+    cursor: pointer;
+}
+.bottom-left .bottom_left-top{
+    width: 270px;
+    height: 160px;
+    border-bottom: 2px solid white;
+}
+.bottom-left .hot {
+    width: 50px;
+    height: 50px;
+    background-color: #E58B8B;
+    position: absolute;
+    top: 0;
+    left: 25px;
+    text-align: center;
+}
+.bottom-left img {
+    margin: 0 85px;
+}
+.bottom-left .span1 {
+    display: block;
+    height: 40px;
+    margin: 8px 30px 0;
+    font-size: 14px;
+    color: #333333;
+    overflow: hidden;
+}
+.bottom-left .span1:hover {
+    color: #C81623;
+}
+.bottom-left .hot span:first-child {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+}
+.bottom-left .hot span:last-child {
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+}
+.bottom-left-bottom {
+    width: 272px;
+    height: 84px;
+}
+.bottom-left-bottom .box1{
+    width: 133px;
+    height: 42px;
+    float: left;
+    font-size: 15px;
+    border-bottom: 2px solid white;
+    text-align: center;
+    line-height: 42px;
+    color: #333333;
+}
+.bottom-left-bottom .box1 i{
+    font-style: normal;
+    margin-left: 10px;
+}
+.bottom-left-bottom .box1:hover {
+    color: #C81623;
+}
+.bottom-left-bottom .box2 {
+    border-right: 2px solid white;
+}
+.bottom-right {
+    width: 290px;
+    height: 240px;
+    padding-top: 10px;
+}
+.bottom-right-left {
+    width: 40px;
+    height: 250px;
+}
+.bottom-right-left .hot1{
+    width: 30px;
+    height: 40px;
+    background-color: #F0AB82;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    margin: 45px 0 15px 0;
+}
+.bottom-right-left .hot2{
+    background-color: #FAD17E;
+}
+.bottom-right-left .hot3{
+    background-color: #BFBAAF;
+}
+.bottom-right-left .hot1:first-child {
+    margin-top: 15px;
+}
+.bottom-right-left .hot1 span {
+    font-size: 14px;
+    line-height: 18px;
+}
+.bottom-right-right {
+    width: 250px;
+    height: 240px;
+}
+.opt {
+    height: 70px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+.opt:hover {
+    color: #C81623;
+}
+.opt img {
+    width: 70px;
+    height: 70px;
+    float: left;
+}
+.opt span{
+    display: inline-block;
+    width: 150px;
+    height: 32px;
+    float: left;
+    font-size: 12px;
+    line-height: 16px;
+    margin-left: 10px;
+    overflow: hidden;
+    margin-top: 19px;
+}
+.bottom2,.bottom3,.bottom4,.bottom5{
+    display: none;
+}

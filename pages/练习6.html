@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+<img src="../img/01.gif" alt="">
+<img src="../img/02.gif" alt="">
+<img src="../img/03.gif" alt="">
+<img src="../img/04.gif" alt="">
+<img src="../img/05.gif" alt="">
+<img src="../img/06.gif" alt="">
+<img src="../img/07.gif" alt="">
+<img src="../img/08.gif" alt="">
+<img src="../img/09.gif" alt="">
+<img src="../img/10.gif" alt="">
+<img src="../img/11.gif" alt="">
+<img src="../img/12.gif" alt="">
+<br>
+<span>添加的表情<img src="../img/03.gif" alt=""> </span>
+</body>
+<script>
+    var img = document.querySelectorAll("img");
+    var span = document.querySelector("span");
+    img.forEach(function (value) {
+        value.onclick=function () {
+            var node = value.cloneNode();
+            span.appendChild(node);
+        }
+    })
+
+    var node1 = span.cloneNode(true);
+    console.log(node1);
+</script>
+</html>
